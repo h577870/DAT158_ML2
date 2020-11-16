@@ -17,9 +17,15 @@ Fyll inn
 Fyll inn
 ## Kilder
 Kaggle-konkurransen: https://www.kaggle.com/c/ga-customer-revenue-prediction 
+
 Data fra konkurransen: https://www.kaggle.com/c/ga-customer-revenue-prediction/data
+
 For å flate ut JSON: https://www.kaggle.com/julian3833/1-quick-start-read-csv-and-flatten-json-fields 
+
 Normalisering av JSON: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.json_normalize.html?highlight=json_normalize 
+
 Fletting av DF: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html?highlight=merge#pandas.DataFrame.merge 
+
 Dokumentasjon for PyCaret: https://pycaret.org/ 
+
 Dokumentasjon for Flask: https://flask.palletsprojects.com/en/1.1.x/ 
