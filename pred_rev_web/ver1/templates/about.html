@@ -1,0 +1,9 @@
+{%extends "layout.html"%}
+{% block content %}
+    <h1>About:</h1>
+    <p>This is our deployment of our ml project.</p>
+    <p>Made by: </p>
+    {% for name in authors %}
+    <p>{{name}}</p>
+    {% endfor %}
+{% endblock content %}
