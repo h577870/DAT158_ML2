@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from forms import SubmitForm
 app = Flask(__name__)
 
-authors = ["Fredrik", "Kristoffer", "Teodor", "Joa97"]
+authors = ["Joakim Skålevik Høiby Hansen","Kristoffer Davidsen", "Teodor Alveberg", "Fredrik Christensen"]
 app.config["SECRET_KEY"] = "94e7470803fe765d08320634c1659894"
 
 @app.route('/')
