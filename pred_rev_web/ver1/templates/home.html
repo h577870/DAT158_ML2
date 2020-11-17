@@ -1,0 +1,89 @@
+{%extends "layout.html"%}
+{% block content %}
+<h1>DAT158 - Gruppe 13</h1>
+<div class="content-section">
+    <form method="post" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom"> Prediker summen av alle transaksjoner for en bruker</legend>
+            <dir class="form-group">
+                {{ form.channelGrouping.label(class="form-control-label") }}
+                {{ form.channelGrouping(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.fullVisitorId.label(class="form-control-label") }}
+                {{ form.fullVisitorId(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.socialEngagementType.label(class="form-control-label") }}
+                {{ form.socialEngagementType(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.visitId.label(class="form-control-label") }}
+                {{ form.visitId(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.visitNumber.label(class="form-control-label") }}
+                {{ form.visitNumber(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.device_browser.label(class="form-control-label") }}
+                {{ form.device_browser(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.device_operatingSystem.label(class="form-control-label") }}
+                {{ form.device_operatingSystem(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.device_isMobile.label(class="form-control-label") }}
+                {{ form.device_isMobile(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.device_deviceCategory.label(class="form-control-label") }}
+                {{ form.device_deviceCategory(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.geoNetwork_continent.label(class="form-control-label") }}
+                {{ form.geoNetwork_continent(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.geoNetwork_country.label(class="form-control-label") }}
+                {{ form.geoNetwork_country(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.totals_visits.label(class="form-control-label") }}
+                {{ form.totals_visits(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.totals_hits.label(class="form-control-label") }}
+                {{ form.totals_hits(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.totals_pageviews.label(class="form-control-label") }}
+                {{ form.totals_pageviews(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.totals_bounces.label(class="form-control-label") }}
+                {{ form.totals_bounces(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.totals_newVisits.label(class="form-control-label") }}
+                {{ form.totals_newVisits(class="form-control form-control-lg") }}
+            </dir>
+            <dir class="form-group">
+                {{ form.trafficSource_isTrueDirect.label(class="form-control-label") }}
+                {{ form.trafficSource_isTrueDirect(class="form-control form-control-lg") }}
+            </dir>
+            
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        Gruppe 13
+    </small>
+</div>
+{% endblock content %}
