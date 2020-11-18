@@ -19,7 +19,7 @@ class SubmitForm(FlaskForm):
     totals_pageviews             = StringField("totals_pageviews", validators=[DataRequired(), Length(min=2,max=50)])
     totals_bounces               = StringField("totals_bounces", validators=[DataRequired(), Length(min=2,max=50)])
     totals_newVisits             = StringField("totals_newVisits", validators=[DataRequired(), Length(min=2,max=50)])
-    totals_transactionRevenue    = StringField("totals_transactionRevenue ", validators=[DataRequired(), Length(min=2,max=50)])
+    #totals_transactionRevenue    = StringField("totals_transactionRevenue ", validators=[DataRequired(), Length(min=2,max=50)])
     trafficSource_isTrueDirect   = StringField("trafficSource_isTrueDirect", validators=[DataRequired(), Length(min=2,max=50)])
 
     submit = SubmitField("Predict")
