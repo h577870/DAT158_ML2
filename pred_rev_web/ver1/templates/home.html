@@ -1,11 +1,13 @@
 {%extends "layout.html"%}
 {% block content %}
 <h1>DAT158 - Gruppe 13</h1>
+
 <!--
 {% if form.errors %}
 {{ form.errors }}
 {% endif %}
 -->
+
 <div class="content-section">
     <form action="" method="POST">
         {{ form.hidden_tag() }}
@@ -14,7 +16,7 @@
                         
             {% if prediksjon %}
                 <div class="alert alert-success">
-                    Prediksjon: {{ prediksjon }} ¥
+                    Prediksjon: {{ prediksjon }} $
                 </div>
             {% endif %}
 
