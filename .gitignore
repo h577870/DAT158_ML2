@@ -1,1 +1,14 @@
 pred_rev_web/venv
+<<<<<<< Updated upstream
+=======
+Customer-revenue-prediction.ipynb
+data
+Customer-revenue-prediction.ipynb
+.ipynb_checkpoints/Customer-revenue-prediction-checkpoint.ipynb
+Customer-revenue-prediction.ipynb
+Customer-revenue-prediction.ipynb
+Customer-revenue-prediction.ipynb
+>>>>>>> Stashed changes
+Customer-revenue-prediction.ipynb
+*.ipynb
+finalized_model_17_nov.pkl
