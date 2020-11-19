@@ -10,7 +10,7 @@ Vi har i denne oppgaven vært igjennom følgende trinn:
 7.	Presentasjon av løsning
 8.	Utrulling, overvåkning og vedlikehold av systemet
 
-De 6 første trinnene vil være beskrevet i notebooken NOTEBOOK_NAME og det er derfor kun presentasjonen av løsningen (trinn 7) og utrulling, overvåkning og vedlikehold av systemet (trinn 8) som presenteres i README-filen.
+De 6 første trinnene vil være beskrevet i [notebooken](Customer-revenue-prediction.ipynb) og det er derfor kun presentasjonen av løsningen (trinn 7) og utrulling, overvåkning og vedlikehold av systemet (trinn 8) som presenteres i README-filen.
 ## Presentasjon av løsning 
 Fyll inn
 ## Utrulling, overvåkning og vedlikehold av systemet
