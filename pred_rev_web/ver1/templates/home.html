@@ -1,83 +1,273 @@
 {%extends "layout.html"%}
 {% block content %}
 <h1>DAT158 - Gruppe 13</h1>
+
+<!--
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+-->
+
+{% if prediksjon %}
+    <div class="alert alert-success">
+        Prediksjon: {{ prediksjon }}
+    </div>
+{% endif %}
+
+{% if invalid %}
+    <div class="alert alert-danger">
+        Kunne ikke få tak i prediksjon.
+    </div>
+{% endif %}
+
 <div class="content-section">
-    <form method="post" action="">
+    <form action="" method="POST">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
             <legend class="border-bottom"> Prediker summen av alle transaksjoner for en bruker</legend>
-            <dir class="form-group">
+            <div class="form-group">
                 {{ form.channelGrouping.label(class="form-control-label") }}
-                {{ form.channelGrouping(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
+
+                {% if form.channelGrouping.errors %}
+                    {{ form.channelGrouping(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.channelGrouping.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.channelGrouping(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
                 {{ form.fullVisitorId.label(class="form-control-label") }}
-                {{ form.fullVisitorId(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
+
+                {% if form.fullVisitorId.errors %}
+                    {{ form.fullVisitorId(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.fullVisitorId.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.fullVisitorId(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
                 {{ form.socialEngagementType.label(class="form-control-label") }}
-                {{ form.socialEngagementType(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.visitId.label(class="form-control-label") }}
-                {{ form.visitId(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.visitNumber.label(class="form-control-label") }}
-                {{ form.visitNumber(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.device_browser.label(class="form-control-label") }}
-                {{ form.device_browser(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.device_operatingSystem.label(class="form-control-label") }}
-                {{ form.device_operatingSystem(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.device_isMobile.label(class="form-control-label") }}
-                {{ form.device_isMobile(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.device_deviceCategory.label(class="form-control-label") }}
-                {{ form.device_deviceCategory(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.geoNetwork_continent.label(class="form-control-label") }}
-                {{ form.geoNetwork_continent(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.geoNetwork_country.label(class="form-control-label") }}
-                {{ form.geoNetwork_country(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.totals_visits.label(class="form-control-label") }}
-                {{ form.totals_visits(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.totals_hits.label(class="form-control-label") }}
-                {{ form.totals_hits(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.totals_pageviews.label(class="form-control-label") }}
-                {{ form.totals_pageviews(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.totals_bounces.label(class="form-control-label") }}
-                {{ form.totals_bounces(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.totals_newVisits.label(class="form-control-label") }}
-                {{ form.totals_newVisits(class="form-control form-control-lg") }}
-            </dir>
-            <dir class="form-group">
-                {{ form.trafficSource_isTrueDirect.label(class="form-control-label") }}
-                {{ form.trafficSource_isTrueDirect(class="form-control form-control-lg") }}
-            </dir>
+                {% if form.socialEngagementType.errors %}
+                    {{ form.socialEngagementType(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.socialEngagementType.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.socialEngagementType(class="form-control form-control-lg") }}
+                {% endif %}
             
+            </div>
+            <div class="form-group">
+                {{ form.visitId.label(class="form-control-label") }}
+                {% if form.visitId.errors %}
+                    {{ form.visitId(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.visitId.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.visitId(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.visitNumber.label(class="form-control-label") }}
+                {% if form.visitNumber.errors %}
+                    {{ form.visitNumber(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.visitNumber.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.visitNumber(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.device_browser.label(class="form-control-label") }}
+                {% if form.device_browser.errors %}
+                    {{ form.device_browser(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.device_browser.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.device_browser(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.device_operatingSystem.label(class="form-control-label") }}
+                {% if form.device_operatingSystem.errors %}
+                    {{ form.device_operatingSystem(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.device_operatingSystem.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.device_operatingSystem(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.device_isMobile.label(class="form-control-label") }}
+                {% if form.device_isMobile.errors %}
+                    {{ form.device_isMobile(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.device_isMobile.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.device_isMobile(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.device_deviceCategory.label(class="form-control-label") }}
+                {% if form.device_deviceCategory.errors %}
+                    {{ form.device_deviceCategory(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.device_deviceCategory.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.device_deviceCategory(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.geoNetwork_continent.label(class="form-control-label") }}
+                {% if form.geoNetwork_continent.errors %}
+                    {{ form.geoNetwork_continent(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.geoNetwork_continent.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.geoNetwork_continent(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.geoNetwork_country.label(class="form-control-label") }}
+                {% if form.geoNetwork_country.errors %}
+                    {{ form.geoNetwork_country(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.geoNetwork_country.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.geoNetwork_country(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.totals_visits.label(class="form-control-label") }}
+                {% if form.totals_visits.errors %}
+                    {{ form.totals_visits(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.totals_visits.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.totals_visits(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.totals_hits.label(class="form-control-label") }}
+                {% if form.totals_hits.errors %}
+                    {{ form.totals_hits(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.totals_hits.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.totals_hits(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.totals_pageviews.label(class="form-control-label") }}
+                {% if form.totals_pageviews.errors %}
+                    {{ form.totals_pageviews(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.totals_pageviews.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.totals_pageviews(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.totals_bounces.label(class="form-control-label") }}
+                {% if form.totals_bounces.errors %}
+                    {{ form.totals_bounces(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.totals_bounces.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.totals_bounces(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.totals_newVisits.label(class="form-control-label") }}
+                {% if form.totals_newVisits.errors %}
+                    {{ form.totals_newVisits(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.totals_newVisits.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.totals_newVisits(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
+            <div class="form-group">
+                {{ form.trafficSource_isTrueDirect.label(class="form-control-label") }}
+                {% if form.trafficSource_isTrueDirect.errors %}
+                    {{ form.trafficSource_isTrueDirect(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.trafficSource_isTrueDirect.errors %}
+                         <span>{{ error }}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{ form.trafficSource_isTrueDirect(class="form-control form-control-lg") }}
+                {% endif %}
+            
+            </div>
         </fieldset>
+
         <div class="form-group">
             {{ form.submit(class="btn btn-outline-info") }}
+        </div>
         </div>
     </form>
 </div>
