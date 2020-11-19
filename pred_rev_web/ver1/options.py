@@ -1,5 +1,4 @@
 class Options():
-    socialEngagementType = [True, False]
     browsers = ["Firefox", "Chrome", "Edge", "Safari"]
     operatingSystems = ['Windows', 'Macintosh', 'Linux', 'Android', 'iOS', 'Chrome OS']
     isMobile = [True, False]
