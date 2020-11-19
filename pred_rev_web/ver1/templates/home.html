@@ -1,87 +1,69 @@
 {%extends "layout.html"%}
 {% block content %}
 <h1>DAT158 - Gruppe 13</h1>
-
+<!--
 {% if form.errors %}
 {{ form.errors }}
 {% endif %}
-
-
-{% if prediksjon %}
-    <div class="alert alert-success">
-        Prediksjon: {{ prediksjon }}
-    </div>
-{% endif %}
-
-{% if invalid %}
-    <div class="alert alert-danger">
-        Kunne ikke få tak i prediksjon.
-    </div>
-{% endif %}
-
+-->
 <div class="content-section">
     <form action="" method="POST">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
             <legend class="border-bottom"> Prediker summen av alle transaksjoner for en bruker</legend>
+                        
+            {% if prediksjon %}
+                <div class="alert alert-success">
+                    Prediksjon: {{ prediksjon }} ¥
+                </div>
+            {% endif %}
+
+            {% if invalid %}
+                <div class="alert alert-danger">
+                    Kunne ikke få tak i prediksjon.
+                </div>
+            {% endif %}
+
+            <br>
             
             <div class="form-group">
                 {{ form.device_browser.label(class="form-control-label") }}
-                {% if form.device_browser.errors %}
-                    {{ form.device_browser(class="form-control form-control-lg is-invalid")}}
-                    <div class="invalid-feedback">
-                        {% for error in form.device_browser.errors %}
-                         <span>{{ error }}</span>
-                        {% endfor%}
-                    </div>
-                {% else %}
-                    {{ form.device_browser(class="form-control form-control-lg") }}
-                {% endif %}
-            
+                
+                <select name="device_browser" class="form-control" >
+                    {% for browser in options.browsers %}
+                        <option value={{ browser }}>{{ browser }}</option>
+                    {% endfor %}
+                </select>
             </div>
+
             <div class="form-group">
                 {{ form.device_operatingSystem.label(class="form-control-label") }}
-                {% if form.device_operatingSystem.errors %}
-                    {{ form.device_operatingSystem(class="form-control form-control-lg is-invalid")}}
-                    <div class="invalid-feedback">
-                        {% for error in form.device_operatingSystem.errors %}
-                         <span>{{ error }}</span>
-                        {% endfor%}
-                    </div>
-                {% else %}
-                    {{ form.device_operatingSystem(class="form-control form-control-lg") }}
-                {% endif %}
-            
+                
+                <select name="device_operatingSystem" class="form-control">
+                    {% for os in options.operatingSystems %}
+                        <option value={{ os }}>{{ os }}</option>
+                    {% endfor %}
+                </select>
             </div>
+
             <div class="form-group">
                 {{ form.device_isMobile.label(class="form-control-label") }}
-                {% if form.device_isMobile.errors %}
-                    {{ form.device_isMobile(class="form-control form-control-lg is-invalid")}}
-                    <div class="invalid-feedback">
-                        {% for error in form.device_isMobile.errors %}
-                         <span>{{ error }}</span>
-                        {% endfor%}
-                    </div>
-                {% else %}
-                    {{ form.device_isMobile(class="form-control form-control-lg") }}
-                {% endif %}
-            
+                <select name="device_isMobile" class="form-control">
+                    {% for answer in options.isMobile %}
+                        <option value={{ answer }}>{{ answer }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="form-group">
                 {{ form.geoNetwork_continent.label(class="form-control-label") }}
-                {% if form.geoNetwork_continent.errors %}
-                    {{ form.geoNetwork_continent(class="form-control form-control-lg is-invalid")}}
-                    <div class="invalid-feedback">
-                        {% for error in form.geoNetwork_continent.errors %}
-                         <span>{{ error }}</span>
-                        {% endfor%}
-                    </div>
-                {% else %}
-                    {{ form.geoNetwork_continent(class="form-control form-control-lg") }}
-                {% endif %}
-            
+                <select name="geoNetwork_continent" class="form-control">
+                    {% for continent in options.continents %}
+                        <option value={{ continent }}>{{ continent }}</option>
+                    {% endfor %}
+                </select>
             </div>
+
             <div class="form-group">
                 {{ form.geoNetwork_country.label(class="form-control-label") }}
                 {% if form.geoNetwork_country.errors %}
@@ -95,8 +77,8 @@
                     {{ form.geoNetwork_country(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
-        </fieldset>
 
+        </fieldset>
         <div class="form-group">
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
