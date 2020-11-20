@@ -22,7 +22,7 @@ Vi har laget en [flask-applikasjon](pred_rev_web/ver1/) som predikerer antatt in
 
 Fordi det er mange så mange features i datasettet, og mange av disse (eksempelvis channelGrouping) som ikke gir mening for brukeren å legge inn manuelt, er disse hardkodet manuelt i applikasjonen. Det er mulig å gjøre modellen mer presis ved å hente ut informasjon om blant annet land, region, nettleser og lignende fra nettleserens header, men dette er ikke gjort i vår flask-applikasjon. 
 
-Vi har laget en video som demonstrerer bruken av applikasjonen [her](https://www.youtube.com)
+Vi har laget en video som demonstrerer bruken av applikasjonen [her](https://streamable.com/ekr5qn)
 ## Kilder
 Kaggle-konkurransen: https://www.kaggle.com/c/ga-customer-revenue-prediction 
 
